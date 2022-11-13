@@ -28,7 +28,10 @@ dependencies {
             'org.springframework.boot:spring-boot-starter-actuator',
             'org.springframework.boot:spring-boot-starter-web',
             'org.springframework.boot:spring-boot-starter-validation',
-            'org.springdoc:springdoc-openapi-ui:1.6.4'
+            'org.springdoc:springdoc-openapi-ui:1.6.4',
+            'org.springframework.kafka:spring-kafka',
+            'org.apache.kafka:kafka-streams',
+            'org.apache.kafka:kafka-clients'
     )
     runtimeOnly('io.micrometer:micrometer-registry-prometheus')
     compileOnly 'org.projectlombok:lombok'
