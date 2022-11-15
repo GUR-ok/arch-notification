@@ -15,7 +15,8 @@
 
 Пример сообщения в Кафку:
 
-{"event":"SOME", "value":2.0}
+kafka-console-consumer.bat --bootstrap-server localhost:9091 --topic notification --from-beginning
+{"event":"SOME", "id":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "value":2.0}
 
 ---
 ### Очистка пространства:

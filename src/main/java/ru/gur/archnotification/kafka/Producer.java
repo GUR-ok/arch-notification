@@ -9,22 +9,14 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 @Slf4j
 public class Producer {
-    private final KafkaTemplate<String, String> kafkaTemplateString;
+    private final KafkaTemplate<String, Double> kafkaTemplateString;
 
-    public void sendString(String topic, int keyFrom, int keyTo, String data, int count) {
+    public void sendString(String topic, String key, Double data) {
         log.info("Start send");
-
-        for (int i = keyFrom; i < keyTo; ++i) {
-            var no = i;
-            for (int j = 0; j < count; ++j) {
-                var no2 = j;
-                kafkaTemplateString.send(topic, Integer.toString(i), "[" + data + "] " + i + "-" + j)
+                kafkaTemplateString.send(topic, key, data)
                         .addCallback(
-                                result -> log.info("send complete {}-{}", no, no2),
+                                result -> log.info("send complete {}", topic),
                                 fail -> log.error("fail send", fail.getCause()));
-            }
-        }
-
         log.info("complete send");
     }
 }

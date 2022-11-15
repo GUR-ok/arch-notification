@@ -9,6 +9,8 @@ import java.util.UUID;
 @Builder
 public class SomeEventData implements KafkaEvent {
 
+    UUID id;
+
     Double value;
 
     @Override

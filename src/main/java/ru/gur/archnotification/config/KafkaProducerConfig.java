@@ -3,6 +3,7 @@ package ru.gur.archnotification.config;
 import org.apache.kafka.clients.admin.AdminClientConfig;
 import org.apache.kafka.clients.admin.NewTopic;
 import org.apache.kafka.clients.producer.ProducerConfig;
+import org.apache.kafka.common.serialization.DoubleSerializer;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -20,7 +21,7 @@ public class KafkaProducerConfig {
     @Value("${kafka.bootstrapAddress}")
     private String SERVER;
 
-    private ProducerFactory<String, String> producerFactoryString() {
+    private ProducerFactory<String, Double> producerFactoryString() {
         Map<String, Object> configProps = new HashMap<>();
         configProps.put(
                 ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,
@@ -30,12 +31,12 @@ public class KafkaProducerConfig {
                 StringSerializer.class);
         configProps.put(
                 ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG,
-                StringSerializer.class);
+                DoubleSerializer.class);
         return new DefaultKafkaProducerFactory<>(configProps);
     }
 
     @Bean
-    public KafkaTemplate<String, String> kafkaTemplateString() {
+    public KafkaTemplate<String, Double> kafkaTemplateString() {
         return new KafkaTemplate<>(producerFactoryString());
     }
 
@@ -47,7 +48,12 @@ public class KafkaProducerConfig {
     }
 
     @Bean
-    public NewTopic topic1() {
+    public NewTopic topicNotification() {
         return new NewTopic("notification", 2, (short) 1);
+    }
+
+    @Bean
+    public NewTopic topicAccountsWithBalance() {
+        return new NewTopic("AccountsWithBalance", 2, (short) 1);
     }
 }
