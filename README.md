@@ -15,7 +15,7 @@
 
 Пример сообщения в Кафку:
 
-{"event":"ORDER_CREATED", "orderId":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "price":100.99}
+{"event":"ORDER_PAID", "orderId":"2fa85f64-5717-4562-b3fc-2c963f66afa6"}
 
 ---
 ### Очистка пространства:

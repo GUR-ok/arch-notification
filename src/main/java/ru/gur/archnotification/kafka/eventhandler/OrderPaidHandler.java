@@ -27,6 +27,7 @@ public class OrderPaidHandler implements EventHandler<OrderPaidEventData> {
         Assert.notNull(eventSource, "EventSource must not be null");
 
 //        service.call
+        System.out.printf("!!! ORDER %s PAID SUCCESSFULLY\n", eventSource.getOrderId());
 
         log.info("Event handled: {}", eventSource);
 

@@ -27,6 +27,8 @@ public class PaymentFailHandler implements EventHandler<PaymentFailEventData> {
         Assert.notNull(eventSource, "EventSource must not be null");
 
 //        service.call
+        System.out.printf("!!! NOT ENOUGH MONEY on account %s for order %s\n",
+                eventSource.getAccountId(), eventSource.getOrderId());
 
         log.info("Event handled: {}", eventSource);
 

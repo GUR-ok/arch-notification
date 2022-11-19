@@ -27,6 +27,8 @@ public class DepositAcceptedHandler implements EventHandler<DepositAcceptedEvent
         Assert.notNull(eventSource, "EventSource must not be null");
 
 //        service.call
+        System.out.printf("!!! DEPOSIT %s ACCEPTED ON ACCOUNT %s\n", eventSource.getValue(),
+                eventSource.getAccountId());
 
         log.info("Event handled: {}", eventSource);
 
