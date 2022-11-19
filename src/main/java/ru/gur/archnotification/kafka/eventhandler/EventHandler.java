@@ -1,6 +1,6 @@
 package ru.gur.archnotification.kafka.eventhandler;
 
-import ru.gur.archnotification.kafka.EventSource;
+import ru.gur.archnotification.kafka.event.EventSource;
 
 public interface EventHandler<T extends EventSource> {
 

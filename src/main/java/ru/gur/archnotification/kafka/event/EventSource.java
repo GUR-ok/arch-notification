@@ -1,4 +1,4 @@
-package ru.gur.archnotification.kafka;
+package ru.gur.archnotification.kafka.event;
 
 public interface EventSource {
 

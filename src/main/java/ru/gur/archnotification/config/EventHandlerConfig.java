@@ -2,7 +2,7 @@ package ru.gur.archnotification.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import ru.gur.archnotification.kafka.EventSource;
+import ru.gur.archnotification.kafka.event.EventSource;
 import ru.gur.archnotification.kafka.eventhandler.EventHandler;
 
 import java.util.HashSet;

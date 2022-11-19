@@ -15,8 +15,7 @@
 
 Пример сообщения в Кафку:
 
-kafka-console-consumer.bat --bootstrap-server localhost:9091 --topic notification --from-beginning
-{"event":"SOME", "id":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "value":2.0}
+{"event":"ORDER_CREATED", "orderId":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "price":100.99}
 
 ---
 ### Очистка пространства:
