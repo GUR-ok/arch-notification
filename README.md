@@ -15,7 +15,9 @@
 
 Пример сообщения в Кафку:
 
-{"event":"ORDER_PAID", "orderId":"2fa85f64-5717-4562-b3fc-2c963f66afa6"}
+{"event":"DEPOSIT_ACCEPTED", "accountId":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "value":199.99}
+{"event":"ORDER_PAID", "orderId":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "accountId":"3bc85f63-6718-4562-f3fd-1c063f77add9"}
+{"event":"PAYMENT_FAIL", "orderId":"2fa85f64-5717-4562-b3fc-2c963f66afa6", "accountId":"3bc85f63-6718-4562-f3fd-1c063f77add9"}
 
 ---
 ### Очистка пространства:

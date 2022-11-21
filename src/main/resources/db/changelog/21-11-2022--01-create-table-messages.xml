@@ -20,6 +20,13 @@
             <column name="text" type="varchar(255)" remarks="Текст сообщения">
                 <constraints nullable="false"/>
             </column>
+            <column name="event" type="varchar(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="created" type="DATETIME(3)" remarks="Дата создания сообщения"
+                    defaultValueDate="NOW()" autoIncrement="false">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 

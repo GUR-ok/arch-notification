@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UpdateTimestamp;
+import ru.gur.archnotification.kafka.event.Event;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -30,4 +31,12 @@ public class Message {
 
     @Column(name = "text", nullable = false)
     private String text;
+
+    @Column(name = "event", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Event event;
+
+    @CreationTimestamp
+    @Column(name = "created", nullable = false, updatable = false)
+    private LocalDateTime created;
 }
