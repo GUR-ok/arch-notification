@@ -14,6 +14,8 @@ public class MessageDtoToGetMessageResponseConverter implements Converter<Messag
                 .id(source.getId())
                 .account(source.getAccount())
                 .text(source.getText())
+                .created(source.getCreated())
+                .event(source.getEvent())
                 .build();
     }
 }

@@ -2,7 +2,9 @@ package ru.gur.archnotification.service.dto;
 
 import lombok.Builder;
 import lombok.Value;
+import ru.gur.archnotification.kafka.event.Event;
 
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Value
@@ -14,4 +16,8 @@ public class MessageDto {
     UUID account;
 
     String text;
+
+    Event event;
+
+    LocalDateTime created;
 }

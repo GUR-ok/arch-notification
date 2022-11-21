@@ -27,6 +27,8 @@ public class MessageServiceImpl implements MessageService {
                 .id(message.getId())
                 .account(message.getAccount())
                 .text(message.getText())
+                .created(message.getCreated())
+                .event(message.getEvent())
                 .build();
     }
 
@@ -39,6 +41,8 @@ public class MessageServiceImpl implements MessageService {
                 .id(message.getId())
                 .account(message.getAccount())
                 .text(message.getText())
+                .created(message.getCreated())
+                .event(message.getEvent())
                 .build();
     }
 
@@ -49,6 +53,8 @@ public class MessageServiceImpl implements MessageService {
                         .id(m.getId())
                         .account(m.getAccount())
                         .text(m.getText())
+                        .created(m.getCreated())
+                        .event(m.getEvent())
                         .build())
                 .collect(Collectors.toList());
     }
