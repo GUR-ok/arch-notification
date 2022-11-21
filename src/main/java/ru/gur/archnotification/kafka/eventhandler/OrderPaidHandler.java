@@ -7,13 +7,14 @@ import org.springframework.util.Assert;
 import ru.gur.archnotification.kafka.event.Event;
 import ru.gur.archnotification.kafka.event.EventSource;
 import ru.gur.archnotification.kafka.event.OrderPaidEventData;
+import ru.gur.archnotification.service.MessageService;
 
 @Slf4j
 @Component
 @RequiredArgsConstructor
 public class OrderPaidHandler implements EventHandler<OrderPaidEventData> {
 
-//    private final service;
+    private final MessageService messageService;
 
     @Override
     public boolean canHandle(final EventSource eventSource) {
@@ -26,7 +27,11 @@ public class OrderPaidHandler implements EventHandler<OrderPaidEventData> {
     public String handleEvent(final OrderPaidEventData eventSource) {
         Assert.notNull(eventSource, "EventSource must not be null");
 
-//        service.call
+        messageService.sendMessage(eventSource.getAccountId(),
+                String.format("ORDER %s PAID SUCCESSFULLY", eventSource.getOrderId()),
+                eventSource.getEvent());
+
+        System.out.printf("!!! ORDER %s PAID SUCCESSFULLY\n", eventSource.getOrderId());
 
         log.info("Event handled: {}", eventSource);
 
