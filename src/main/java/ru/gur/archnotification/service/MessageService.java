@@ -15,4 +15,6 @@ public interface MessageService {
     List<MessageDto> getMessages();
 
     UUID sendMessage(UUID account, String text, Event event);
+
+    void deleteAll();
 }

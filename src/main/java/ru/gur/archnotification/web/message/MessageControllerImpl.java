@@ -2,6 +2,7 @@ package ru.gur.archnotification.web.message;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.core.convert.ConversionService;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,10 +35,16 @@ public class MessageControllerImpl implements MessageController {
     }
 
     @Override
-    @GetMapping(path = "/")
+    @GetMapping
     public List<GetMessageResponse> getMessages() {
         return messageService.getMessages().stream()
                 .map(m -> conversionService.convert(m, GetMessageResponse.class))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    @DeleteMapping
+    public void clear() {
+        messageService.deleteAll();
     }
 }

@@ -71,4 +71,10 @@ public class MessageServiceImpl implements MessageService {
 
         return message.getId();
     }
+
+    @Override
+    @Transactional
+    public void deleteAll() {
+        messageRepository.deleteAll();
+    }
 }

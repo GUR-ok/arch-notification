@@ -12,4 +12,6 @@ public interface MessageController {
     GetMessageResponse findByAccountId(UUID accountId);
 
     List<GetMessageResponse> getMessages();
+
+    void clear();
 }
