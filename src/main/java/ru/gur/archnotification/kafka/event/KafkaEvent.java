@@ -11,6 +11,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
         @JsonSubTypes.Type(value = PaymentFailEventData.class, name = "PAYMENT_FAIL"),
         @JsonSubTypes.Type(value = OrderPaidEventData.class, name = "ORDER_PAID"),
         @JsonSubTypes.Type(value = DepositAcceptedEventData.class, name = "DEPOSIT_ACCEPTED"),
+        @JsonSubTypes.Type(value = BrokerageNotificationEventData.class, name = "BROKERAGE_NOTIFICATION"),
 })
 public interface KafkaEvent extends EventSource{
 }

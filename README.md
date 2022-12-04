@@ -2,8 +2,8 @@
 
 Сборка и установка в minikube
 1) `gradle build`
-2) `docker build -t gurok/arch_notification .`
-3) `docker push gurok/arch_notification`
+2) `docker build -t gurok/arch_notification_2 .`
+3) `docker push gurok/arch_notification_2`
 4) `kubectl create namespace arch-gur`
 5) `helm install gorelov-kafka ./deployment/kafka/`
 6) `helm install arch_notification ./deployment/app/`
