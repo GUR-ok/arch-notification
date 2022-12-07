@@ -39,4 +39,25 @@ public class Consumer {
             log.error("Couldn't parse message: {}; exception: ", message, e);
         }
     }
+
+    @KafkaListener(topics = "brokerage-notification", containerFactory = "kafkaListenerContainerFactoryString")
+    public void listenGroupTopic2(String message) {
+        log.info("Receive message: {}", message);
+
+        final ObjectMapper objectMapper = new ObjectMapper();
+
+        try {
+            final KafkaEvent eventSource = objectMapper.readValue(message, KafkaEvent.class);
+            log.info("EventSource: {}", eventSource);
+
+            eventHandlers.stream()
+                    .filter(eventSourceEventHandler -> eventSourceEventHandler.canHandle(eventSource))
+                    .findFirst()
+                    .orElseThrow(() -> new RuntimeException("Handler for eventsource not found"))
+                    .handleEvent(eventSource);
+
+        } catch (JsonProcessingException e) {
+            log.error("Couldn't parse message: {}; exception: ", message, e);
+        }
+    }
 }

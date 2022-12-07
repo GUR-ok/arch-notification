@@ -29,10 +29,10 @@ public class Message {
     @Column(name = "account", nullable = false)
     private UUID account;
 
-    @Column(name = "text", nullable = false)
+    @Column(name = "text", length = 1000, nullable = false)
     private String text;
 
-    @Column(name = "event", nullable = false)
+    @Column(name = "event", length = 50, nullable = false)
     @Enumerated(EnumType.STRING)
     private Event event;
 
