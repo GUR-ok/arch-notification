@@ -6,7 +6,7 @@
     <changeSet id="create-table-messages" author="Yuriy Gorelov">
         <preConditions onFail="MARK_RAN">
             <not>
-                <tableExists tableName="accounts"/>
+                <tableExists tableName="messages"/>
             </not>
         </preConditions>
 
@@ -17,7 +17,7 @@
             <column name="account" type="UUID" remarks="Идентификатор получателя">
                 <constraints nullable="false"/>
             </column>
-            <column name="text" type="varchar(255)" remarks="Текст сообщения">
+            <column name="text" type="varchar(1000)" remarks="Текст сообщения">
                 <constraints nullable="false"/>
             </column>
             <column name="event" type="varchar(50)">
